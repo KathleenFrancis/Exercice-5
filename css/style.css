@@ -747,6 +747,7 @@ body {
 
 .header {
   border: 2px dotted #7c4c4c;
+  margin: 10px 0;
 }
 
 .header section {
