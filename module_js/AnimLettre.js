@@ -18,26 +18,39 @@ export class AnimLettre {
         //Récupérer les valeurs passées en paramètre			
         this.motAnime = motAnime;
         this.elmParent = elementParent;
-        this.AnimerLettre(motAnime);
+        this.AnimerLettre(this.motAnime);
         console.log('constructor');
         this.fonction = fonction;
     }
 
-    AnimerLettre() {
+    AnimerLettre(motAnime) {
+        console.log(`mot animé = ${motAnime}`)
+        let elmConteneur = this.creerElement(this.elmParent,
+            'section',
+            '',
+            'mot');
 
+        for (let i=0; i<this.motAnime.length; i++) {
+            let e = this.creerElement(elmConteneur,'div', this.motAnime[i], '');
+            e.style.animationDelay = (i * 0.5) + "s";
+        }
+		
+		window.setTimeout(function () {
+			window.location.reload();
+		}, 20000);
     }
 
     creerElement(elmParent, balise, contenu, classCSS) {
-        console.log(balise)
-        let noeud = document.createElement(balise)
+        console.log(balise);
+        let noeud = document.createElement(balise);
         if (contenu != '') {
-            noeud.innerHTML = contenu
+            noeud.innerHTML = contenu;
         }
         if (classCSS != '') {
-            noeud.classList.add(classCSS)
+            noeud.classList.add(classCSS);
         }
-        elmParent.appendChild(noeud)
-        return noeud
+        elmParent.appendChild(noeud);
+        return noeud;
     }
 
 }
