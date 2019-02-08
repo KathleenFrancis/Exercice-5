@@ -745,6 +745,10 @@ body {
           flex-direction: column;
 }
 
+.header {
+  border: 2px dotted #7c4c4c;
+}
+
 .global {
   max-width: 100vw;
   /*Propriété comme item flex*/
